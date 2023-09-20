@@ -11,7 +11,19 @@
   width: 153px;
   height: 28px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
+.icon-only {
+  width: 29px;
+}
+
+.btn:not(.icon-only) {
+  width: 153px;
+}
+
 .btn:hover {
   border: 2px inset #fff;
   background: silver;

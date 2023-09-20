@@ -1,1 +1,10 @@
+.bottom_control_board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 
+.container {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}

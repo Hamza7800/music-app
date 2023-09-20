@@ -1,68 +1,114 @@
 {
-  "songs": [
+  "tracks": [
     {
-      "user_id": 1,
+      "id": "1",
       "name": "Melody",
       "genre": "Instrumental",
       "artist": "Batman",
+      "album": "Instrumental Classics",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar1.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/a-small-miracle-132333.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/a-small-miracle-132333.mp3",
+      "date_added": "2023-09-20",
+      "duration_ms": 240000
     },
     {
-      "user_id": 1,
+      "id": "2",
       "name": "Eternal Echoes",
       "genre": "Pop",
       "artist": "Vivi",
+      "album": "Pop Hits",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar2.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/cinematic-fairy-tale-story-main-8697.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/cinematic-fairy-tale-story-main-8697.mp3",
+      "date_added": "2023-09-19",
+      "duration_ms": 210000
     },
     {
-      "user_id": 1,
+      "id": "3",
       "name": "Midnight Serenade",
       "genre": "Rock",
-      "artist": "50cent",
+      "artist": "50 Cent",
+      "album": "Rock Anthems",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar3.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/forest-lullaby-110624.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/forest-lullaby-110624.mp3",
+      "date_added": "2023-09-18",
+      "duration_ms": 180000
     },
     {
-      "user_id": 2,
+      "id": "4",
       "name": "Sunset Serenity",
       "genre": "Country",
       "artist": "Lily Aurora",
+      "album": "Country Roads",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar4.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/just-relax-11157.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/just-relax-11157.mp3",
+      "date_added": "2023-09-17",
+      "duration_ms": 220000
     },
     {
-      "user_id": 2,
+      "id": "5",
       "name": "Golden Memories",
       "genre": "Blues",
       "artist": "Leo Stone",
+      "album": "Blues Classics",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar5.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/lofi-study-112191.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/lofi-study-112191.mp3",
+      "date_added": "2023-09-16",
+      "duration_ms": 190000
     },
     {
-      "user_id": 1,
+      "id": "6",
       "name": "Starry Dreams",
       "genre": "Jazz",
       "artist": "Oliver Rain",
+      "album": "Jazz Nights",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar6.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/loneliness-of-the-winner-110416.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/loneliness-of-the-winner-110416.mp3",
+      "date_added": "2023-09-15",
+      "duration_ms": 200000
     },
     {
-      "user_id": 3,
-      "name": "Melody",
+      "id": "7",
+      "name": "Moonlit Sonata",
       "genre": "Classical",
       "artist": "Nova Starling",
+      "album": "Classical Masterpieces",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar7.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/relaxed-vlog-night-street-131746.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/relaxed-vlog-night-street-131746.mp3",
+      "date_added": "2023-09-14",
+      "duration_ms": 230000
     },
     {
-      "user_id": 3,
-      "name": "Dancing in Moonlight",
+      "id": "8",
+      "name": "Reggae Vibes",
       "genre": "Reggae",
-      "artist": "One direction",
+      "artist": "One Direction",
+      "album": "Reggae Grooves",
       "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar8.png",
-      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/relaxing-145038.mp3"
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/relaxing-145038.mp3",
+      "date_added": "2023-09-13",
+      "duration_ms": 210000
+    },
+    {
+      "id": "9",
+      "name": "Electric Dreams",
+      "genre": "Electronic",
+      "artist": "SynthMaster",
+      "album": "Electronic Beats",
+      "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar9.png",
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/electric-dreams-120398.mp3",
+      "date_added": "2023-09-12",
+      "duration_ms": 240000
+    },
+    {
+      "id": "10",
+      "name": "Guitar Serenade",
+      "genre": "Acoustic",
+      "artist": "AcousticMan",
+      "album": "Acoustic Wonders",
+      "cover_photo": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/avatar10.png",
+      "file_path": "https://goldeneragrooves.s3.us-east-2.amazonaws.com/guitar-serenade-109283.mp3",
+      "date_added": "2023-09-11",
+      "duration_ms": 180000
     }
   ]
 }
