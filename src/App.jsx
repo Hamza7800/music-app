@@ -6,10 +6,12 @@ import Divider from "./components/Divider";
 import ActionBar from "./components/ActionBar";
 import Songs from "./components/Songs";
 import "./App.css";
+import { Login } from "./pages/login";
 
 function App() {
   return (
     <>
+      {/* <Login /> */}
       <div className="container">
         <Navbar />
         <div style={{ width: "100%" }}>
