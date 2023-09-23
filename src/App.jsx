@@ -45,9 +45,13 @@ function App() {
   }
 
   const handleVolumeChange = (e) => {
-    const newVolume = e.target.value;
-    setVolume(newVolume);
-    audioRef.current.volume = newVolume;
+    const newVolume = e?.target?.value;
+    if (newVolume && audioRef.current) {
+      setVolume(newVolume);
+      audioRef.current.volume = newVolume;
+    } else {
+      return;
+    }
   };
 
   return (

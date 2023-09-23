@@ -7,24 +7,13 @@ const Songs = () => {
   const { songs } = useSelector((state) => state.songs);
   const dispatch = useDispatch();
 
-  // console.log(playlists);
-  // const formatDuration = (duration_ms) => {
-  //   const seconds = Math.floor((parseFloat(duration_ms) / 1000) % 60);
-  //   const minutes = Math.floor((parseFloat(duration_ms) / (1000 * 60)) % 60);
-  //   const hours = Math.floor((parseFloat(duration_ms) / (1000 * 60 * 60)) % 24);
-
-  //   return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
-  //     .toString()
-  //     .padStart(2, "0")}`;
-  // };
-
-  const renderList = songs?.map((song) => {
+  const renderList = songs?.map((song, index) => {
     return (
       <div
-        className="song-row songs"
+        className={"song-row songs"}
         key={song?.id}
         onClick={() => {
-          dispatch(playSong(song));
+          dispatch(playSong({ song, index }));
           dispatch(playAudio());
         }}
       >

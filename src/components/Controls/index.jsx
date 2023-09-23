@@ -1,5 +1,10 @@
 import { useRef, useState } from "react";
-import { playAudio, pauseAudio } from "../../slices/songsSlice";
+import {
+  playAudio,
+  pauseAudio,
+  nextSong,
+  pervSong,
+} from "../../slices/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../Button";
 import iconShuffle from "../../assets/shuffle.svg";
@@ -16,23 +21,12 @@ const Controls = ({
   isPlaying,
   volume,
 }) => {
-  // const dispatch = useDispatch();
-  // const { playSong, isPlaying } = useSelector((state) => state.playSong);
+  const dispatch = useDispatch();
+  const { songs } = useSelector((state) => state.songs);
   // const audioRef = useRef(null);
   const [progressPercent, setProgressPercent] = useState(0);
   const [remainingDuration, setRemainingDuration] = useState(0);
 
-  // const togglePlayPause = () => {
-  //   if (isPlaying) {
-  //     console.log("pause");
-  //     dispatch(pauseAudio());
-  //     audioRef.current.pause();
-  //   } else {
-  //     console.log("play");
-  //     dispatch(playAudio(playSong?.src));
-  //     audioRef.current.play();
-  //   }
-  // };
   function formatTime(timeInSeconds) {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = Math.floor(timeInSeconds % 60);
@@ -72,13 +66,13 @@ const Controls = ({
         <Button iconOnly onClick={() => {}}>
           <img src={iconShuffle} alt="" />
         </Button>
-        <Button iconOnly>
+        <Button iconOnly onClick={() => dispatch(pervSong({ songs }))}>
           <img src={iconPrev} alt="" style={{ rotate: "180deg" }} />
         </Button>
         <Button iconOnly onClick={togglePlayPause}>
           <img src={iconPlay} alt="" />
         </Button>
-        <Button iconOnly>
+        <Button iconOnly onClick={() => dispatch(nextSong({ songs }))}>
           <img src={iconNext} alt="" />
         </Button>
         <Button iconOnly>
