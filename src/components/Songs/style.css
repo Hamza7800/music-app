@@ -2,6 +2,12 @@
   width: 100%;
   background-color: #fff;
   overflow-y: scroll;
+  height: 475px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  border-left-color: #424242;
+  border-top-color: #424242;
 }
 
 .header-row {
@@ -27,7 +33,8 @@
 }
 
 .title-column {
-  flex: 2;
+  flex: 3;
+  font-weight: bold;
 }
 
 .album-column {
@@ -35,9 +42,16 @@
 }
 
 .date-added-column {
-  flex: 3;
+  flex: 2;
 }
 
 .duration-column {
   flex: 2;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  gap: 6px;
 }

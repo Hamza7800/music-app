@@ -26,7 +26,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/search">
               <Button onClick={onClickHandler}>
                 <img src={iconSearch} alt="" />
                 Search
@@ -34,7 +34,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/library">
               <Button onClick={onClickHandler}>
                 <img src={iconComputer} alt="" />
                 Your Library
@@ -45,7 +45,7 @@ const Navbar = () => {
         <Divider />
         <ul>
           <li>
-            <Link to="/">
+            <Link to="/create-playlist">
               <Button onClick={onClickHandler}>
                 <img src={iconCreatePlaylist} alt="" />
                 Create Playlist
@@ -53,7 +53,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/">
+            <Link to="/liked-songs">
               <Button onClick={onClickHandler}>
                 <img src={iconLiked} alt="" />
                 Liked Songs

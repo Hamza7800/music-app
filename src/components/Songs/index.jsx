@@ -1,49 +1,60 @@
-import data from "../../../public/data.json";
+import { useSelector, useDispatch } from "react-redux";
+import { playSong, playAudio } from "../../slices/songsSlice";
+
 import "./style.css";
 
 const Songs = () => {
-  const { tracks } = data;
-  console.log(tracks);
+  const { songs } = useSelector((state) => state.songs);
+  const dispatch = useDispatch();
 
-  const formatDuration = (duration_ms) => {
-    const seconds = Math.floor((duration_ms / 1000) % 60);
-    const minutes = Math.floor((duration_ms / (1000 * 60)) % 60);
-    const hours = Math.floor((duration_ms / (1000 * 60 * 60)) % 24);
+  // console.log(playlists);
+  // const formatDuration = (duration_ms) => {
+  //   const seconds = Math.floor((parseFloat(duration_ms) / 1000) % 60);
+  //   const minutes = Math.floor((parseFloat(duration_ms) / (1000 * 60)) % 60);
+  //   const hours = Math.floor((parseFloat(duration_ms) / (1000 * 60 * 60)) % 24);
 
-    return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
-  };
+  //   return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
+  //     .toString()
+  //     .padStart(2, "0")}`;
+  // };
 
-  const renderList = tracks.map((track) => {
+  const renderList = songs?.map((song) => {
     return (
-      <div className="song-row songs" key={track.id}>
-        <span className="song-column id-column">{track.id}</span>
-        <span className="song-column title-column">{track.name}</span>
-        <span className="song-column album-column">{track.album}</span>
+      <div
+        className="song-row songs"
+        key={song?.id}
+        onClick={() => {
+          dispatch(playSong(song));
+          dispatch(playAudio());
+        }}
+      >
+        <span className="song-column id-column">{song?.id}</span>
+        <div className="song-column title">
+          <span className=" title-column">{song?.title}</span>
+          <span className=" artist-column">{song?.artist}</span>
+        </div>
+        <span className="song-column album-column">{song?.album}</span>
         <span className="song-column date-added-column">
-          {track.date_added}
+          {song?.date_added}
         </span>
-        <span className="song-column duration-column">
-          {formatDuration(track.duration_ms)}
-        </span>
+        <span className="song-column duration-column">{song?.duration}</span>
       </div>
     );
   });
 
   return (
-    <div>
-      {/* Header row */}
-      <div className="song-row header-row">
-        <span className="song-column id-column">#</span>
-        <span className="song-column title-column">Title</span>
-        <span className="song-column album-column">Album</span>
-        <span className="song-column date-added-column">Date Added</span>
-        <span className="song-column duration-column">Duration</span>
+    <>
+      <div>
+        <div className="song-row header-row">
+          <span className="song-column id-column">#</span>
+          <span className="song-column title-column">Title</span>
+          <span className="song-column album-column">Album</span>
+          <span className="song-column date-added-column">Date Added</span>
+          <span className="song-column duration-column">Duration</span>
+        </div>
+        <div className="table">{renderList}</div>
       </div>
-      {/* Data rows */}
-      {renderList}
-    </div>
+    </>
   );
 };
 
