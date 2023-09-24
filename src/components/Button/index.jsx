@@ -1,7 +1,9 @@
 import "./style.css";
 
-const Button = ({ onClick, children, iconOnly }) => {
-  const buttonClass = `btn  btn-primary ${iconOnly ? "icon-only" : ""}`;
+const Button = ({ onClick, children, iconOnly, className }) => {
+  const buttonClass = `btn  btn-primary ${
+    iconOnly ? "icon-only" : ""
+  } ${className}`;
 
   return (
     <button onClick={onClick} className={buttonClass}>

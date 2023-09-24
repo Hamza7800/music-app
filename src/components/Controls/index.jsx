@@ -26,6 +26,7 @@ const Controls = ({
   // const audioRef = useRef(null);
   const [progressPercent, setProgressPercent] = useState(0);
   const [remainingDuration, setRemainingDuration] = useState(0);
+  const [loop, setLoop] = useState(false);
 
   function formatTime(timeInSeconds) {
     const minutes = Math.floor(timeInSeconds / 60);
@@ -69,13 +70,21 @@ const Controls = ({
         <Button iconOnly onClick={() => dispatch(pervSong({ songs }))}>
           <img src={iconPrev} alt="" style={{ rotate: "180deg" }} />
         </Button>
-        <Button iconOnly onClick={togglePlayPause}>
+        <Button
+          iconOnly
+          onClick={togglePlayPause}
+          className={`${isPlaying ? "btnActive" : ""}`}
+        >
           <img src={iconPlay} alt="" />
         </Button>
         <Button iconOnly onClick={() => dispatch(nextSong({ songs }))}>
           <img src={iconNext} alt="" />
         </Button>
-        <Button iconOnly>
+        <Button
+          iconOnly
+          onClick={() => setLoop(true)}
+          className={`${loop ? "btnActive" : ""}`}
+        >
           <img src={iconRepeat} alt="" />
         </Button>
       </div>
@@ -104,6 +113,7 @@ const Controls = ({
               autoPlay={isPlaying}
               onTimeUpdate={updateProgress}
               volume={volume}
+              loop={loop}
             >
               <source src={playSong?.src} type="audio/mp3" />
             </audio>

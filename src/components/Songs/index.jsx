@@ -1,16 +1,17 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { playSong, playAudio } from "../../slices/songsSlice";
 
 import "./style.css";
 
-const Songs = () => {
-  const { songs } = useSelector((state) => state.songs);
+const Songs = ({ songs }) => {
+  // const { currentSongIndex } = useSelector((state) => state.playSong);
   const dispatch = useDispatch();
 
   const renderList = songs?.map((song, index) => {
+    // const active = currentSongIndex === index;
     return (
       <div
-        className={"song-row songs"}
+        className={`song-row songs `}
         key={song?.id}
         onClick={() => {
           dispatch(playSong({ song, index }));

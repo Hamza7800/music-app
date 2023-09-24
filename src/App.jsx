@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.playlists);
   const { playSong, isPlaying } = useSelector((state) => state.playSong);
-  const [volume, setVolume] = useState(0.5);
+  const [volume, setVolume] = useState(1);
   const audioRef = useRef(null);
 
   const togglePlayPause = () => {

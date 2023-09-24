@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
 import LibrarayPage from "./pages/LibrarayPage.jsx";
 import CreatePlayList from "./pages/CreatePlayList.jsx";
+import PlaylistsPage from "./pages/PlaylistsPage.jsx";
 import store from "./store";
 import "./index.css";
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path="/search" element={<SearchPage />} />
       <Route path="/library" element={<LibrarayPage />} />
       <Route path="/create-playlist" element={<CreatePlayList />} />
+      <Route path="/playlists" element={<PlaylistsPage />} />
     </Route>
   )
 );

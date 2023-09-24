@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { apiSlice } from '../slices/apiSlice';
 import playlistsSliceReducer from '../slices/playlistsSlice';
-import { songsSliceReducer, playSongSliceRducer } from '../slices/songsSlice';
+import { songsSliceReducer, playSongSliceRducer, likedSongSliceRducer } from '../slices/songsSlice';
 
 const store = configureStore({
   reducer: {
@@ -9,6 +9,7 @@ const store = configureStore({
     playlists: playlistsSliceReducer,
     songs: songsSliceReducer,
     playSong: playSongSliceRducer,
+    likedSongs: likedSongSliceRducer
   },
 
   middleware: (getDefaultMiddleware) =>

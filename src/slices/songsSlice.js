@@ -30,12 +30,14 @@ const playSongSlice = createSlice({
   initialState: {
     playSong: null,
     isPlaying: false,
-    currentSongIndex: 0
+    currentSongIndex: 0,
+    isLiked: null,
   },
   reducers: {
     playSong: (state, action) => {
       state.playSong = action.payload.song;
       state.currentSongIndex = action.payload.index;
+      state.isLiked = action.payload.song.isLiked;
     },
     playAudio: (state) => {
       state.isPlaying = true;
@@ -71,8 +73,29 @@ const playSongSlice = createSlice({
   }
 });
 
+const likedSongSlice = createSlice({
+  name: 'likedSongs',
+  initialState: {
+    likedSong: [],
+  },
+  reducers: {
+    likeSong: (state, action) => {
+      const songToAdd = action.payload;
+      const isSongAlreadyLiked = state.likedSong.some(song => song.id === songToAdd.id);
+
+      if (!isSongAlreadyLiked) {
+        state.likedSong.push(songToAdd);
+      } else {
+        state.likedSong = state.likedSong.filter(song => song.id !== songToAdd.id);
+      }
+    }
+  }
+});
+
 export const { getSongs } = songsSlice.actions;
 export const { playSong, pauseAudio, playAudio, nextSong, pervSong } = playSongSlice.actions;
+export const { likeSong } = likedSongSlice.actions;
 
 export const songsSliceReducer = songsSlice.reducer;
 export const playSongSliceRducer = playSongSlice.reducer;
+export const likedSongSliceRducer = likedSongSlice.reducer;

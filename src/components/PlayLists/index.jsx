@@ -11,7 +11,7 @@ const PlayLists = () => {
 
   const handlePlaylistClick = (playlistName) => {
     dispatch(getSongs({ playlists, playlistName }));
-    navigate("/liked-songs");
+    navigate("/playlists");
   };
 
   const renderList = playlists?.map((playlist, index) => {
