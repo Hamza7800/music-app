@@ -10,6 +10,9 @@ import { pauseAudio, playAudio } from "./slices/songsSlice";
 import volumnIcon from "./assets/volumnIcon.svg";
 import "./App.css";
 import Button from "./components/Button";
+import { Login } from "./pages/login";
+import { Signup } from "./pages/signup";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,51 +57,55 @@ function App() {
     }
   };
 
-  return (
-    <div className="app">
-      <div className="container">
-        <div>
-          <Navbar />
-          <PlayLists />
-        </div>
-        {/* <div style={{ width: "100%" }}>
-          <PlayListHeader />
-          <Divider />
-          <ActionBar />
-          <Divider />
-          <Songs songs={songs} />
-        </div> */}
-        <Outlet />
-      </div>
-      <div className="bottom_control_board">
-        <CurrentPlayingSong />
-        <div className="grid_item1">
-          <Controls
-            isPlaying={isPlaying}
-            playSong={playSong}
-            audioRef={audioRef}
-            togglePlayPause={togglePlayPause}
-            volume={volume}
-          />
-          {/* <div className="duration">ds</div> */}
-          {/* <Divider /> */}
-        </div>
-        <div className="volumn">
-          <Button iconOnly>
-            <img src={volumnIcon} alt="" />
-          </Button>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.01" // You can adjust the step value as needed
-            value={volume}
-            onChange={handleVolumeChange}
-          />
-        </div>
-      </div>
-    </div>
-  );
+  {
+    /* <Login /> */
+  }
+  {
+    /* <Signup /> */
+  }
+  return <div className="app">{/* <HomePage /> */}</div>;
 }
 
 export default App;
+
+//  <div className="container">
+//         <div>
+//           <Navbar />
+//           <PlayLists />
+//         </div>
+//         {/* <div style={{ width: "100%" }}>
+//           <PlayListHeader />
+//           <Divider />
+//           <ActionBar />
+//           <Divider />
+//           <Songs songs={songs} />
+//         </div> */}
+//         <Outlet />
+//       </div>
+//       <div className="bottom_control_board">
+//         <CurrentPlayingSong />
+//         <div className="grid_item1">
+//           <Controls
+//             isPlaying={isPlaying}
+//             playSong={playSong}
+//             audioRef={audioRef}
+//             togglePlayPause={togglePlayPause}
+//             volume={volume}
+//           />
+//           {/* <div className="duration">ds</div> */}
+//           {/* <Divider /> */}
+//         </div>
+//         <div className="volumn">
+//           <Button iconOnly>
+//             <img src={volumnIcon} alt="" />
+//           </Button>
+//           <input
+//             type="range"
+//             min="0"
+//             max="1"
+//             step="0.01" // You can adjust the step value as needed
+//             value={volume}
+//             onChange={handleVolumeChange}
+//           />
+//         </div>
+//       </div>

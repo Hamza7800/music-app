@@ -16,11 +16,16 @@ import CreatePlayList from "./pages/CreatePlayList.jsx";
 import PlaylistsPage from "./pages/PlaylistsPage.jsx";
 import store from "./store";
 import "./index.css";
+import { Login } from "./pages/login/index.jsx";
+import { AppNavigator } from "./navigation/AppNavigator/index.jsx";
+import { Navigation } from "./navigation/index.jsx";
+import { Signup } from "./pages/signup/index.jsx";
 
-const router = createBrowserRouter(
+const appRouter = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route index path="/" element={<HomePage />} />
+    // <Route path="/" element={<App />}>
+    // <Route path="/" element={<Navigation />}>
+    <Route path="/" element={<HomePage />}>
       <Route path="/liked-songs" element={<LikedSongsPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/library" element={<LibrarayPage />} />
@@ -30,10 +35,19 @@ const router = createBrowserRouter(
   )
 );
 
+const authRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Login />}>
+      <Route index path="/login" element={<Login />} />
+      <Route index path="/signup" element={<Signup />} />
+    </Route>
+  )
+);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <RouterProvider router={authRouter} />
     </Provider>
   </React.StrictMode>
 );
