@@ -10,6 +10,9 @@ import { pauseAudio, playAudio } from "./slices/songsSlice";
 import volumnIcon from "./assets/volumnIcon.svg";
 import "./App.css";
 import Button from "./components/Button";
+// import { Login } from "./pages/login";
+// import { Signup } from "./pages/signup";
+import HomePage from "./pages/HomePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +57,12 @@ function App() {
     }
   };
 
+  {
+    /* <Login /> */
+  }
+  {
+    /* <Signup /> */
+  }
   return (
     <div className="app">
       <div className="container">

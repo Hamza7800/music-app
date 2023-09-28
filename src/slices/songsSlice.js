@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const songsSlice = createSlice({
   name: 'songs',
-  initialState: { songs: [], currentPlayList: null },
+  initialState: { songs: [], allSongs: [], currentPlayList: null },
   reducers: {
     getSongs: (state, action) => {
       const { playlistName, playlists } = action.payload;
@@ -18,6 +18,9 @@ const songsSlice = createSlice({
       } else {
         state.songs = [];
       }
+    },
+    getAllSongs: (state, action) => {
+      state.allSongs = action.payload;
     },
     playSong: (state, action) => {
       console.log(action.payload);
@@ -92,7 +95,7 @@ const likedSongSlice = createSlice({
   }
 });
 
-export const { getSongs } = songsSlice.actions;
+export const { getSongs, getAllSongs } = songsSlice.actions;
 export const { playSong, pauseAudio, playAudio, nextSong, pervSong } = playSongSlice.actions;
 export const { likeSong } = likedSongSlice.actions;
 

@@ -17,7 +17,7 @@
 }
 
 .icon-only {
-  width: 29px;
+  width: fit-content;
 }
 
 .btn:not(.icon-only) {

@@ -1,0 +1,19 @@
+.playlist {
+  margin: 5px;
+  cursor: pointer;
+  padding: 10px;
+  border: 2px inset #fff;
+  background: silver;
+  color: #424242;
+  box-shadow: -1px -1px #000;
+  background-color: #dfdfdf;
+}
+
+.playlist:hover {
+  box-shadow: 1px 1px #000;
+}
+
+.pList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

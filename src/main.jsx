@@ -16,6 +16,7 @@ import CreatePlayList from "./pages/CreatePlayList.jsx";
 import PlaylistsPage from "./pages/PlaylistsPage.jsx";
 import store from "./store";
 import "./index.css";
+import SelectedPlaylistPage from "./pages/SelectedPlaylistPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/library" element={<LibrarayPage />} />
       <Route path="/create-playlist" element={<CreatePlayList />} />
       <Route path="/playlists" element={<PlaylistsPage />} />
+      <Route path="/playlist/:name" element={<SelectedPlaylistPage />} />
     </Route>
   )
 );

@@ -6,6 +6,7 @@ import "./style.css";
 
 const PlayLists = () => {
   const dispatch = useDispatch();
+
   const { playlists } = useSelector((state) => state.playlists);
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ const PlayLists = () => {
   });
   return (
     <div className="playList">
-      <h2>Playlists</h2>
+      <h2>My Playlists</h2>
       {renderList}
     </div>
   );
