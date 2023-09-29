@@ -1,3 +1,5 @@
+import { BASE_URL } from "../utils/constants";
+
 // constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
@@ -30,7 +32,8 @@ export const authenticate = () => async (dispatch) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-  const response = await fetch("/api/auth/login", {
+  // const response = await fetch("/api/auth/login", {
+  const response = await fetch(`http://localhost:3000/api/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -68,8 +71,10 @@ export const logout = () => async (dispatch) => {
 };
 
 export const signUp = (username, email, password) => async (dispatch) => {
-  const response = await fetch("/api/auth/signup", {
+  // const response = await fetch("http://127.0.0.1:5000/api/auth/signup", {
+  const response = await fetch(`http://127.0.0.1:5000/api/auth/signup`, {
     method: "POST",
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
     },
@@ -81,8 +86,9 @@ export const signUp = (username, email, password) => async (dispatch) => {
   });
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(setUser(data));
+    // const data = await response.json();
+    dispatch(setUser(response));
+    console.log("response:", response);
     return null;
   } else if (response.status < 500) {
     const data = await response.json();

@@ -37,7 +37,7 @@ const appRouter = createBrowserRouter(
 
 const authRouter = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Login />}>
+    <Route path="/" element={<Signup />}>
       <Route index path="/login" element={<Login />} />
       <Route index path="/signup" element={<Signup />} />
     </Route>

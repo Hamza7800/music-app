@@ -1,12 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css"; // Import the CSS file for styling
+import { useDispatch, useSelector } from "react-redux";
+import { signUp } from "../../slices/session";
 
 export const Signup = () => {
+  const dispatch = useDispatch();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [ConfirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (Password === ConfirmPassword) {
+      const data = await dispatch(signUp(username, email, Password));
+      console.log("signup data is:", data);
+      if (data) {
+        setErrors(data);
+        console.log(data);
+      }
+    } else {
+      setErrors([
+        "Confirm Password field must be the same as the Password field",
+      ]);
+    }
+  };
+
   const [isMaximized, setIsMaximized] = useState(false);
 
   const toggleMaximize = () => {
     setIsMaximized(!isMaximized);
   };
+
+  useEffect(() => {
+    console.log("username:", username);
+    console.log("email:", email);
+    console.log("Password:", Password);
+    console.log("ConfirmPassword:", ConfirmPassword);
+  }, [username]);
 
   return (
     <div className={`login-container ${isMaximized ? "maximized" : ""}`}>
@@ -30,18 +62,33 @@ export const Signup = () => {
             <br />
             Please sign up
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label htmlFor="username">Username:</label>
-              <input type="text" id="username" name="username" />
+              <input
+                type="text"
+                id="username"
+                name="username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
             <div className="input-group">
               <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="input-group">
               <label htmlFor="password">Password:</label>
-              <input type="password" id="password" name="password" />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             <div className="input-group">
               <label htmlFor="confirmPassword">Confirm Password:</label>
@@ -49,6 +96,7 @@ export const Signup = () => {
                 type="password"
                 id="confirmPassword"
                 name="confirmPassword"
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <button className="login-button">Sign Up</button>

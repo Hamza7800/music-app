@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { login } from "../../slices/session";
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setEmail] = useState("test1234@gmail.com");
+  const [password, setpassword] = useState("test1234");
 
   const dispatch = useDispatch();
 
