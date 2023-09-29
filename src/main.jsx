@@ -17,8 +17,10 @@ import PlaylistsPage from "./pages/PlaylistsPage.jsx";
 import store from "./store";
 import "./index.css";
 import SelectedPlaylistPage from "./pages/SelectedPlaylistPage.jsx";
+import { Signup } from "./pages/signup/index.jsx";
+import { Login } from "./pages/login/index.jsx";
 
-const router = createBrowserRouter(
+const App_router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index path="/" element={<HomePage />} />
@@ -32,10 +34,19 @@ const router = createBrowserRouter(
   )
 );
 
+const auth_Router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Login />}>
+      <Route index path="/login" element={<Login />} />
+      <Route index path="/signup" element={<Signup />} />
+    </Route>
+  )
+);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <RouterProvider router={App_router} />
     </Provider>
   </React.StrictMode>
 );
