@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Controls from "./components/Controls";
@@ -12,9 +13,21 @@ import "./App.css";
 import Button from "./components/Button";
 // import { Login } from "./pages/login";
 // import { Signup } from "./pages/signup";
-import HomePage from "./pages/HomePage";
+// import HomePage from "./pages/HomePage";
 
 function App() {
+  const { allSongs } = useSelector((state) => state.songs);
+  const { selectedPlayListSongs } = useSelector((state) => state.playlists);
+  const { id } = useParams();
+  const location = useLocation();
+  const isPlaylistPage = location.pathname.startsWith("/playlist/");
+  console.log(isPlaylistPage);
+
+  const selectedSongsList = isPlaylistPage
+    ? selectedPlayListSongs?.playlist_songs?.map((song) => song.song)
+    : allSongs;
+  console.log(selectedSongsList);
+
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.playlists);
   const { playSong, isPlaying } = useSelector((state) => state.playSong);
@@ -28,7 +41,7 @@ function App() {
       audioRef.current.pause();
     } else {
       console.log("play");
-      dispatch(playAudio(playSong?.src));
+      dispatch(playAudio(playSong?.filePath));
       audioRef.current.play();
     }
   };
@@ -88,6 +101,7 @@ function App() {
             audioRef={audioRef}
             togglePlayPause={togglePlayPause}
             volume={volume}
+            songs={selectedSongsList}
           />
           {/* <div className="duration">ds</div> */}
           {/* <Divider /> */}

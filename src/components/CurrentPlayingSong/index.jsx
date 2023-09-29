@@ -7,10 +7,10 @@ const CurrentPlayingSong = () => {
   return (
     <div className="currentlyPlayingSong">
       <div className="icon">
-        <img src={icon} alt="" />
+        <img src={playSong?.coverPhoto ? playSong?.coverPhoto : icon} alt="" />
       </div>
       <div>
-        <h2>{playSong?.title}</h2>
+        <h2>{playSong?.name}</h2>
         <p>{playSong?.artist}</p>
       </div>
     </div>

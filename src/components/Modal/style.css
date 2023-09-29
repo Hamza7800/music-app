@@ -9,8 +9,8 @@
   margin: 0 auto;
   max-width: 600px;
   background-color: white;
+  overflow-y: auto;
 
-  overflow-y: scroll;
   height: 475px;
   border-width: 2px;
   border-style: outset;

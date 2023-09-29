@@ -1,14 +1,10 @@
-import { useRef, useState } from "react";
-import {
-  playAudio,
-  pauseAudio,
-  nextSong,
-  pervSong,
-} from "../../slices/songsSlice";
+import { useState } from "react";
+import { nextSong, pervSong } from "../../slices/songsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../Button";
 import iconShuffle from "../../assets/shuffle.svg";
 import iconPlay from "../../assets/play.svg";
+import iconPause from "../../assets/playIcon.svg";
 import iconNext from "../../assets/next.svg";
 import iconPrev from "../../assets/next.svg";
 import iconRepeat from "../../assets/repeat.svg";
@@ -23,6 +19,7 @@ const Controls = ({
 }) => {
   const dispatch = useDispatch();
   const { songs } = useSelector((state) => state.songs);
+  // const { selectedPlayListSongs } = useSelector((state) => state.playlists);
   // const audioRef = useRef(null);
   const [progressPercent, setProgressPercent] = useState(0);
   const [remainingDuration, setRemainingDuration] = useState(0);
@@ -75,21 +72,25 @@ const Controls = ({
           onClick={togglePlayPause}
           className={`${isPlaying ? "btnActive" : ""}`}
         >
-          <img src={iconPlay} alt="" />
+          <img
+            src={isPlaying ? iconPause : iconPlay}
+            alt=""
+            style={{ width: "10px" }}
+          />
         </Button>
         <Button iconOnly onClick={() => dispatch(nextSong({ songs }))}>
           <img src={iconNext} alt="" />
         </Button>
         <Button
           iconOnly
-          onClick={() => setLoop(true)}
+          onClick={() => setLoop(!loop)}
           className={`${loop ? "btnActive" : ""}`}
         >
           <img src={iconRepeat} alt="" />
         </Button>
       </div>
       <div className="ctrl">
-        {playSong?.duration}
+        {/* {playSong?.duration} */}
         <div
           className="progressContainer"
           id="progressContainer"
@@ -108,14 +109,14 @@ const Controls = ({
           <div>
             <audio
               ref={audioRef}
-              key={playSong?.src}
+              key={playSong?.filePath}
               controls
               autoPlay={isPlaying}
               onTimeUpdate={updateProgress}
               volume={volume}
               loop={loop}
             >
-              <source src={playSong?.src} type="audio/mp3" />
+              <source src={playSong?.filePath} type="audio/mp3" />
             </audio>
           </div>
         )}

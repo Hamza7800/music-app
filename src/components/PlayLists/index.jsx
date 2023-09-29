@@ -30,7 +30,7 @@ const PlayLists = () => {
   return (
     <div className="playList">
       <h2>My Playlists</h2>
-      {renderList}
+      {/* {renderList} */}
     </div>
   );
 };

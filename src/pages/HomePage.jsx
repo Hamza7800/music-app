@@ -15,8 +15,9 @@ const HomePage = () => {
       dispatch(getAllSongs(allSongs?.songs));
     }
   }, [allSongs, dispatch]);
+
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <HomePageComponents allPlaylists={allPlaylists?.playlists} />
     </div>
   );

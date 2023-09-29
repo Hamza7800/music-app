@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { playSong, playAudio } from "../slices/songsSlice";
+import { playSong, playAudio, getSongs } from "../slices/songsSlice";
 import Button from "../components/Button";
 import Modal from "../components/Modal";
 import Overlay from "../components/Overlay";
@@ -37,8 +37,13 @@ const SelectedPlaylistPage = () => {
         className={`song-row songs `}
         key={song?.id}
         onClick={() => {
+          dispatch(
+            getSongs({
+              songs: playlist?.playlist_songs?.map((song) => song.song),
+            })
+          );
           dispatch(playSong({ song: song?.song, index }));
-          // dispatch(playAudio());
+          dispatch(playAudio());
         }}
       >
         <span className="song-column id-column">{index + 1}</span>

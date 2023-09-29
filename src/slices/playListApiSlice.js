@@ -9,6 +9,47 @@ export const playlistsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    getCurrentUserPlayList: builder.query({
+      query: () => ({
+        url: `${ PLAYLIST_URL }/current`
+      }),
+      keepUnusedDataFor: 5,
+    }),
+
+    createPlayList: builder.mutation({
+      query: (data) => ({
+        url: PLAYLIST_URL,
+        method: 'POST',
+        body: data,
+      })
+    }),
+    updatePlayList: builder.mutation({
+      query: (data) => ({
+        url: `${ PLAYLIST_URL }/${ data.id }`,
+        method: 'PUT',
+        body: data.body,
+      })
+    }),
+    addSongToPlayList: builder.mutation({
+      query: (data) => ({
+        url: `${ PLAYLIST_URL }/${ data.playListId }/songs`,
+        method: 'POST',
+        body: data.body,
+      })
+    }),
+    removeASongFromPlayList: builder.mutation({
+      query: (data) => ({
+        url: `${ PLAYLIST_URL }/songs/${ data.playlistId }/${ data.songId }`,
+        method: 'DELETE',
+
+      })
+    }),
+    deletePlayList: builder.mutation({
+      query: (data) => ({
+        url: `${ PLAYLIST_URL }/${ data.playListId }`,
+        method: 'DELETE'
+      })
+    })
   })
 });
 

@@ -11,6 +11,10 @@
   color: #424242;
   box-shadow: -1px -1px #000;
   background-color: #dfdfdf;
+  width: 55px;
+}
+.icon img {
+  width: 100%;
 }
 
 .currentlyPlayingSong h2 {
