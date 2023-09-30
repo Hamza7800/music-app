@@ -20,6 +20,7 @@ h2 {
   background-color: #fff;
   width: fit-content;
   margin-bottom: 5px;
+  color: black;
 }
 .playListName {
   cursor: pointer;

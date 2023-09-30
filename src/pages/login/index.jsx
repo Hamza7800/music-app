@@ -11,7 +11,6 @@ export const Login = () => {
   const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
-    console.log("handleLogin clicked");
     e.preventDefault();
     const response = await dispatch(login(email, password));
     console.log("login response is :", response);
@@ -76,7 +75,8 @@ export const Login = () => {
             </div>
             <button
               // onClick={() => handleLogin()}
-              className="login-button">
+              className="login-button"
+            >
               Log In
             </button>
           </form>

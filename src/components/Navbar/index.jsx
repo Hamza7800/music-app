@@ -10,9 +10,7 @@ import iconEpisode from "../../assets/channels-1.svg";
 import "./style.css";
 
 const Navbar = () => {
-  const onClickHandler = () => {
-    console.log("hi");
-  };
+  const onClickHandler = () => {};
   return (
     <header>
       <nav>

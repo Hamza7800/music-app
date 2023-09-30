@@ -54,4 +54,4 @@ export const playlistsApiSlice = apiSlice.injectEndpoints({
 });
 
 
-export const { useGetAllPlaylistsQuery, } = playlistsApiSlice;
+export const { useGetAllPlaylistsQuery, useGetCurrentUserPlayListQuery, useAddSongToPlayListMutation, useCreatePlayListMutation, useDeletePlayListMutation, useLazyGetAllPlaylistsQuery, useUpdatePlayListMutation } = playlistsApiSlice;

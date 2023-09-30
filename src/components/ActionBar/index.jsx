@@ -10,7 +10,6 @@ import "./style.css";
 const ActionBar = () => {
   const dispatch = useDispatch();
   const { playSong } = useSelector((state) => state.playSong);
-  console.log(playSong);
   return (
     <div className="actionBar">
       <div className="btns">

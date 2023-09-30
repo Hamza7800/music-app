@@ -17,7 +17,6 @@ const SelectedPlaylistPage = () => {
   const { allSongs: songs } = useSelector((state) => state.songs);
 
   const dispatch = useDispatch();
-  console.log(playlist);
 
   // if (playlist?.playlist_songs?.length === 0) {
   //   return (

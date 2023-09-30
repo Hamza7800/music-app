@@ -57,7 +57,8 @@ const HomePageComponents = ({ allPlaylists }) => {
         </div>
         <Button
           iconOnly
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             // dispatch();
             // removeSongToSelectedPlayList({ playlist, removeSong: song })
           }}
@@ -71,10 +72,10 @@ const HomePageComponents = ({ allPlaylists }) => {
   return (
     <>
       <div>
-        <div className="conn">
+        {/* <div className="conn">
           <h2>PlayLists</h2>
           <div className="pList">{renderPlayList}</div>
-        </div>
+        </div> */}
         <div className="conn">
           <div className="create">
             <h2>All Songs</h2>

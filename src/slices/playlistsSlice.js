@@ -20,7 +20,6 @@ const playListSlice = createSlice({
   },
   reducers: {
     selectedPlayListSongs: (state, action) => {
-      console.log(action.payload);
       state.selectedPlayListSongs = action.payload;
     },
     addSongToSelectedPlayList: (state, action) => {

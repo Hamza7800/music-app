@@ -22,7 +22,7 @@ const Controls = ({
   // const { selectedPlayListSongs } = useSelector((state) => state.playlists);
   // const audioRef = useRef(null);
   const [progressPercent, setProgressPercent] = useState(0);
-  const [remainingDuration, setRemainingDuration] = useState(0);
+  const [remainingDuration, setRemainingDuration] = useState(null);
   const [loop, setLoop] = useState(false);
 
   function formatTime(timeInSeconds) {

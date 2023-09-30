@@ -21,12 +21,10 @@ function App() {
   const { id } = useParams();
   const location = useLocation();
   const isPlaylistPage = location.pathname.startsWith("/playlist/");
-  console.log(isPlaylistPage);
 
   const selectedSongsList = isPlaylistPage
     ? selectedPlayListSongs?.playlist_songs?.map((song) => song.song)
     : allSongs;
-  console.log(selectedSongsList);
 
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.playlists);
@@ -36,13 +34,11 @@ function App() {
 
   const togglePlayPause = () => {
     if (isPlaying) {
-      console.log("pause");
       dispatch(pauseAudio());
-      audioRef.current.pause();
+      audioRef.current?.pause();
     } else {
-      console.log("play");
       dispatch(playAudio(playSong?.filePath));
-      audioRef.current.play();
+      audioRef.current?.play();
     }
   };
 
